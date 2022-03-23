@@ -35,8 +35,8 @@ namespace OWASP.WebGoat.NET
             //sha1
             //encryption with password
             
-            string secret = txtString.Text;
-            string key = String.IsNullOrEmpty(txtPassword.Text) ? hardCodedKey : txtPassword.Text;
+            string secret = Server.HtmlEncode(txtString.Text);
+            string key = String.IsNullOrEmpty(Server.HtmlEncode(txtPassword.Text)) ? hardCodedKey : Server.HtmlEncode(txtPassword.Text);
             
             Table t = new Table();
             t.Width = new Unit("100%");
